@@ -2,6 +2,16 @@
 
 use Illuminate\Support\Str;
 
+    /*
+    |--------------------------------------------------------------------------
+    | Code to get content of docker secret file and use it within laravel
+    |--------------------------------------------------------------------------
+    |
+    | Adopted from "Using Docker secrets with Laravel" hosted at:
+    |			 https://iwader.co.uk/post/using-docker-secrets-laravel
+    |
+    */
+	
 function docker_secret(string $name): string
 {
     return trim(file_get_contents('/run/secrets/' . $name));
