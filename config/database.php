@@ -2,6 +2,18 @@
 
 use Illuminate\Support\Str;
 
+function docker_secret(string $name): string
+{
+    return trim(file_get_contents('/run/secrets/' . $name));
+}
+
+function docker_secret_callable(string $name): Closure
+{
+    return function () use ($name) {
+        return docker_secret($name);
+    };
+}
+
 return [
 
     /*
@@ -48,9 +60,9 @@ return [
             'url' => env('DATABASE_URL'),
             'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
+            'database' => env('DB_DATABASE','textograph'),
+            'username' => env('DB_USERNAME', docker_secret_callable(env('DB_USERNAME_FILE',''))),
+            'password' => env('DB_PASSWORD', docker_secret_callable(env('DB_PASSWORD_FILE',''))),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
@@ -68,9 +80,9 @@ return [
             'url' => env('DATABASE_URL'),
             'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', '5432'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
+            'database' => env('DB_DATABASE', 'textograph'),
+            'username' => env('DB_USERNAME', docker_secret_callable(env('DB_USERNAME_FILE',''))),
+            'password' => env('DB_PASSWORD', docker_secret_callable(env('DB_PASSWORD_FILE',''))),
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,
@@ -145,3 +157,4 @@ return [
     ],
 
 ];
+
