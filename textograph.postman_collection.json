@@ -1,0 +1,102 @@
+{
+	"info": {
+		"_postman_id": "7a711c45-8f95-41b3-8a6a-d5994077e735",
+		"name": "textograph",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "list of graphs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://textograph.digitaltoxicity.ir/api/graphs?name=t",
+					"protocol": "http",
+					"host": [
+						"textograph",
+						"digitaltoxicity",
+						"ir"
+					],
+					"path": [
+						"api",
+						"graphs"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "t"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create new graph",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"json\": {\n        \"key\": \"value\",\n        \"key2\": \"value2\"\n    },\n    \"name\": \"another graph\"\n}"
+				},
+				"url": {
+					"raw": "http://textograph.digitaltoxicity.ir/api/graphs",
+					"protocol": "http",
+					"host": [
+						"textograph",
+						"digitaltoxicity",
+						"ir"
+					],
+					"path": [
+						"api",
+						"graphs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "show specific graph with specified id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://textograph.digitaltoxicity.ir/api/graphs/1",
+					"protocol": "http",
+					"host": [
+						"textograph",
+						"digitaltoxicity",
+						"ir"
+					],
+					"path": [
+						"api",
+						"graphs",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
