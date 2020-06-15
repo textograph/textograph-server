@@ -14,6 +14,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('graphs', 'GraphController@index');
-Route::post('graphs', 'GraphController@store');
-Route::get('graphs/{graph}', 'GraphController@show');
+
+Route::apiResource('graphs', 'GraphController');
