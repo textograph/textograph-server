@@ -96,6 +96,80 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "update graph with specified id",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"json\": {\n        \"key\": \"value\",\n        \"key2\": \"value2\"\n    },\n    \"name\": \"another graph\"\n}"
+				},
+				"url": {
+					"raw": "http://textograph.digitaltoxicity.ir/api/graphs/1",
+					"protocol": "http",
+					"host": [
+						"textograph",
+						"digitaltoxicity",
+						"ir"
+					],
+					"path": [
+						"api",
+						"graphs",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "remove graph with specified id",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://textograph.digitaltoxicity.ir/api/graphs/1",
+					"protocol": "http",
+					"host": [
+						"textograph",
+						"digitaltoxicity",
+						"ir"
+					],
+					"path": [
+						"api",
+						"graphs",
+						"1"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"protocolProfileBehavior": {}
