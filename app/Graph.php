@@ -35,7 +35,7 @@ class Graph extends Model
      */
     public function setJsonAttribute($value)
     {
-        $this->attributes['json'] = json_encode($value);
+        $this->attributes['json'] = json_encode($value, JSON_UNESCAPED_UNICODE);
     }
 
     /**
@@ -56,7 +56,7 @@ class Graph extends Model
      */
     public function setPropertyAttribute($value)
     {
-        $this->attributes['property'] = json_encode($value);
+        $this->attributes['property'] = json_encode($value, JSON_UNESCAPED_UNICODE);
     }
     
 }
