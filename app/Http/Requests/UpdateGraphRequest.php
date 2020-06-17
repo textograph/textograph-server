@@ -24,8 +24,9 @@ class UpdateGraphRequest extends FormRequest
     public function rules()
     {
         return [
-            'json' => 'required',
-            'name' => 'required|string'
+            'json' => 'nullable',
+            'name' => 'nullable|string',
+            'property' => 'nullable'
         ];
     }
 }

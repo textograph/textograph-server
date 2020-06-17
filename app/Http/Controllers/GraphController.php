@@ -18,14 +18,15 @@ class GraphController extends Controller
             $query = $query->where('name', 'like' ,'%' . $request->input('name') . '%');
         }
 
+        if ($request->has('search')) {
+            $query = $query->where('json', 'like' ,'%' . $request->input('search') . '%');
+        }
+
         return $query->paginate($perPage);
     }
 
     public function store (StoreGraphRequest $request) {
-        $graph = new Graph();
-        $graph->json = $request->input('json');
-        $graph->name = $request->input('name');
-        $graph->save();
+        $graph = Graph::create($request->filter());
 
         return response()->json(['successfully created.']);
     }
@@ -36,9 +37,7 @@ class GraphController extends Controller
 
     public function update (Graph $graph, UpdateGraphRequest $request) {
 
-        $graph->json = $request->input('json');
-        $graph->name = $request->input('name');
-        $graph->save();
+        $graph->fill($request->filter())->save();
 
         return response()->json(['successfully updated.']);
 
