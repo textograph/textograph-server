@@ -11,7 +11,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://textograph.digitaltoxicity.ir/api/graphs?name=t",
+					"raw": "http://textograph.digitaltoxicity.ir/api/graphs?name=t&search=searchInJson",
 					"protocol": "http",
 					"host": [
 						"textograph",
@@ -26,6 +26,10 @@
 						{
 							"key": "name",
 							"value": "t"
+						},
+						{
+							"key": "search",
+							"value": "searchInJson"
 						}
 					]
 				}
@@ -50,7 +54,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"json\": {\n        \"key\": \"value\",\n        \"key2\": \"value2\"\n    },\n    \"name\": \"another graph\"\n}"
+					"raw": "{\n    \"json\": {\n        \"key\": \"value\",\n        \"key2\": \"value2\"\n    },\n    \"property\": {\n        \"key\": \"value\"\n    },\n    \"name\": \"another graph\"\n}"
 				},
 				"url": {
 					"raw": "http://textograph.digitaltoxicity.ir/api/graphs",
@@ -115,7 +119,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"json\": {\n        \"key\": \"value\",\n        \"key2\": \"value2\"\n    },\n    \"name\": \"another graph\"\n}"
+					"raw": "{\n    \"json\": {\n        \"key\": \"value\",\n        \"key2\": \"value2\"\n    },\n    \"property\": {\n        \"key\": \"value\"\n    },\n    \"name\": \"another graph\"\n}"
 				},
 				"url": {
 					"raw": "http://textograph.digitaltoxicity.ir/api/graphs/1",
